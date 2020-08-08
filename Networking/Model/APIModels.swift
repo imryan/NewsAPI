@@ -90,9 +90,9 @@ public enum QueryOptions {
         case .excludeDomains(let excludeDomains):
             return excludeDomains.joined(separator: ",")
         case .fromDate(let fromDate):
-            return fromDate // TODO: Need date string
+            return Formatter.dateFormatter.string(from: fromDate)
         case .toDate(let toDate):
-            return toDate // TODO: Need date string
+            return Formatter.dateFormatter.string(from: toDate)
         case .language(let language):
             return language
         case .sortBy(let sortBy):
@@ -188,4 +188,17 @@ public struct NewsSource: Codable {
     public let category: Category?
     public let language: Language?
     public let country: Country?
+}
+
+// MARK: - Formatter -
+
+private struct Formatter {
+    
+    static var dateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
+        return formatter
+    }
 }
