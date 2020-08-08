@@ -50,9 +50,6 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="tintColor" red="0.20784313725490194" green="0.45490196078431372" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <segue destination="iYZ-vt-fhm" kind="show" id="yTe-0W-7UA"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -74,6 +71,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="cmF-iZ-2oP" id="QXW-pY-ntF"/>
+                        <segue destination="iYZ-vt-fhm" kind="show" identifier="ToArticle" id="mPf-BH-yfZ"/>
+                        <segue destination="jWZ-57-S5q" kind="show" identifier="ToSource" id="f06-Uw-B97"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -168,6 +167,96 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QnS-pu-oIC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1760.8" y="133.5832083958021"/>
+        </scene>
+        <!--Source-->
+        <scene sceneID="KrN-4j-65W">
+            <objects>
+                <viewController id="jWZ-57-S5q" customClass="SourceViewController" customModule="NewsAPI_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8TZ-6t-NJs"/>
+                        <viewControllerLayoutGuide type="bottom" id="nmM-8W-Taw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="X0b-rz-IpF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ABC News" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oVj-ss-PvF">
+                                <rect key="frame" x="16" y="60" width="343" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="General" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sPv-SX-PvW">
+                                <rect key="frame" x="16" y="92" width="343" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="US" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8Q-7c-fam">
+                                <rect key="frame" x="16" y="118" width="343" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EN" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6xI-vH-bz1">
+                                <rect key="frame" x="16" y="144" width="343" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="https://abcnews.com" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QZr-KI-OPV">
+                                <rect key="frame" x="16" y="170" width="343" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" red="0.20784313730000001" green="0.4549019608" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="meW-HP-IYu">
+                                <rect key="frame" x="16" y="192" width="343" height="467"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="tintColor" red="0.20784313730000001" green="0.4549019608" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" lookupSuggestion="YES"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="sPv-SX-PvW" secondAttribute="trailing" id="1Wb-Dm-Gqg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="J8Q-7c-fam" secondAttribute="trailing" id="3mM-5I-zEW"/>
+                            <constraint firstItem="QZr-KI-OPV" firstAttribute="top" secondItem="6xI-vH-bz1" secondAttribute="bottom" constant="8" id="4gk-l3-oIx"/>
+                            <constraint firstItem="6xI-vH-bz1" firstAttribute="leading" secondItem="X0b-rz-IpF" secondAttribute="leadingMargin" id="6eq-Ts-XR6"/>
+                            <constraint firstItem="oVj-ss-PvF" firstAttribute="leading" secondItem="X0b-rz-IpF" secondAttribute="leadingMargin" id="8CC-6G-hrV"/>
+                            <constraint firstItem="QZr-KI-OPV" firstAttribute="leading" secondItem="X0b-rz-IpF" secondAttribute="leadingMargin" id="8TV-hV-MAj"/>
+                            <constraint firstItem="QZr-KI-OPV" firstAttribute="trailing" secondItem="X0b-rz-IpF" secondAttribute="trailingMargin" id="Dpd-ZN-shK"/>
+                            <constraint firstItem="J8Q-7c-fam" firstAttribute="top" secondItem="sPv-SX-PvW" secondAttribute="bottom" constant="8" id="JXl-9e-Oup"/>
+                            <constraint firstItem="meW-HP-IYu" firstAttribute="leading" secondItem="X0b-rz-IpF" secondAttribute="leadingMargin" id="NWC-cW-TUT"/>
+                            <constraint firstItem="sPv-SX-PvW" firstAttribute="top" secondItem="oVj-ss-PvF" secondAttribute="bottom" constant="8" id="Y1P-mj-kpg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="oVj-ss-PvF" secondAttribute="trailing" id="cRM-Zp-yJ5"/>
+                            <constraint firstItem="6xI-vH-bz1" firstAttribute="top" secondItem="J8Q-7c-fam" secondAttribute="bottom" constant="8" id="cpP-e7-aJa"/>
+                            <constraint firstItem="meW-HP-IYu" firstAttribute="trailing" secondItem="X0b-rz-IpF" secondAttribute="trailingMargin" id="dIJ-xM-nkL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6xI-vH-bz1" secondAttribute="trailing" id="oCc-Nn-tWC"/>
+                            <constraint firstItem="oVj-ss-PvF" firstAttribute="top" secondItem="8TZ-6t-NJs" secondAttribute="bottom" constant="16" id="q0q-Gc-RNl"/>
+                            <constraint firstItem="sPv-SX-PvW" firstAttribute="leading" secondItem="X0b-rz-IpF" secondAttribute="leadingMargin" id="qiB-gL-WEp"/>
+                            <constraint firstItem="meW-HP-IYu" firstAttribute="top" secondItem="QZr-KI-OPV" secondAttribute="bottom" constant="4" id="rai-g3-jRf"/>
+                            <constraint firstItem="J8Q-7c-fam" firstAttribute="leading" secondItem="X0b-rz-IpF" secondAttribute="leadingMargin" id="uuS-TX-WJL"/>
+                            <constraint firstItem="nmM-8W-Taw" firstAttribute="top" secondItem="meW-HP-IYu" secondAttribute="bottom" constant="8" id="uwW-zz-qoF"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Source" id="J70-oA-VWC"/>
+                    <connections>
+                        <outlet property="categoryLabel" destination="sPv-SX-PvW" id="3RX-IO-6fL"/>
+                        <outlet property="countryLabel" destination="J8Q-7c-fam" id="UzB-GT-hEn"/>
+                        <outlet property="descriptionTextView" destination="meW-HP-IYu" id="kn5-4u-OPg"/>
+                        <outlet property="languageLabel" destination="6xI-vH-bz1" id="9Df-HF-OZN"/>
+                        <outlet property="linkLabel" destination="QZr-KI-OPV" id="cUR-iM-VZ6"/>
+                        <outlet property="nameLabel" destination="oVj-ss-PvF" id="rqO-J1-mUF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5AT-4x-1GP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1760.8" y="791.15442278860576"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dgH-EZ-pBz">

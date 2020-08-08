@@ -112,23 +112,25 @@ class ViewController: UIViewController {
     // MARK: - UIStoryboardSegue -
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let articleViewController = segue.destination as? ArticleViewController,
-            let index = tableView.indexPathForSelectedRow?.row else { return }
+        guard let indexPath = tableView.indexPathForSelectedRow else { return }
         
-        switch tableView.indexPathForSelectedRow?.section {
-        case 0:
-            articleViewController.article = topHeadlines[index]
-        case 1:
-            articleViewController.article = everything[index]
-        case 2:
-            break
-        default:
-            break
+        if indexPath.section == 2 {
+            guard let sourceViewController = segue.destination as? SourceViewController else { return }
+            sourceViewController.source = sources[indexPath.row]
+        } else {
+            guard let articleViewController = segue.destination as? ArticleViewController else { return }
+            
+            switch indexPath.section {
+            case 0:
+                articleViewController.article = topHeadlines[indexPath.row]
+            case 1:
+                articleViewController.article = everything[indexPath.row]
+            case 2:
+                break
+            default:
+                break
+            }
         }
-    }
-    
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        return tableView.indexPathForSelectedRow?.section != 2
     }
 }
 
@@ -190,17 +192,21 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         
         // Sources
         if indexPath.section == 2 {
-            cell.accessoryType = .none
-            
             if let sourcesData = data as? [NewsSource] {
                 let source = sourcesData[indexPath.row]
-                cell.textLabel?.text = source.name ?? "None"
-                cell.detailTextLabel?.text = source.id ?? "None"
+                cell.detailTextLabel?.text = source.sourceDescription ?? "No description"
+                
+                if source.name == nil || source.name?.isEmpty ?? false {
+                    cell.textLabel?.text = "Unknown Source"
+                } else {
+                    cell.textLabel?.text = source.name
+                }
             }
             
             return cell
         }
         
+        // Headlines
         if let articlesData = data as? [Article] {
             let article = articlesData[indexPath.row]
             cell.detailTextLabel?.text = article.title
@@ -216,6 +222,14 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let indexPath = tableView.indexPathForSelectedRow {
+            if indexPath.section == 2 {
+                performSegue(withIdentifier: "ToSource", sender: nil)
+            } else {
+                performSegue(withIdentifier: "ToArticle", sender: nil)
+            }
+        }
+        
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
