@@ -64,10 +64,13 @@ class ArticleViewController: UIViewController {
     
     private func formatDate(string: String) -> String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "EEEE, MMM d, yyyy"
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        
+        let prettyFormatter = DateFormatter()
+        prettyFormatter.dateStyle = .full
         
         let date = formatter.date(from: string) ?? Date()
-        return formatter.string(from: date)
+        return prettyFormatter.string(from: date)
     }
     
     // MARK: - Networking Functions -
