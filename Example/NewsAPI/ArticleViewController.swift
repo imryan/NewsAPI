@@ -31,6 +31,8 @@ class ArticleViewController: UIViewController {
         guard let article = article else { return }
         
         DispatchQueue.main.async {
+            self.imageView.backgroundColor = .lightGray
+            
             if let imageURL = article.urlToImage {
                 self.getImage(from: imageURL, completion: { [weak self] (image) in
                     self?.imageView.image = image
