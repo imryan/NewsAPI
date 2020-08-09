@@ -60,7 +60,8 @@ class ViewController: UIViewController {
         let options: [QueryOptions] = [
             .domains(["bbc.co.uk", "bbc.com"]),
             .excludeDomains(["google.com"]),
-            .pageSize(5)
+            .pageSize(5),
+            .country(.us)
         ]
         
         news.get(.everything, with: options, headlinesCompletion: { [weak self] (headlines, error) in
@@ -78,7 +79,8 @@ class ViewController: UIViewController {
     private func getSources() {
         let options: [QueryOptions] = [
             .language(.en),
-            .category(.technology)
+            .category(.technology),
+            .country(.us)
         ]
         
         news.get(.sources, with: options) { [weak self] (sources, error) in
