@@ -1,0 +1,25 @@
+{
+  "allExecutables" : [
+
+  ],
+  "builtTestProducts" : [
+    {
+      "packageName" : "NewsAPI",
+      "productName" : "NewsAPIPackageTests",
+      "testBinary" : "\/Users\/ryan\/Development\/Personal\/NewsAPI\/.build\/x86_64-apple-macosx\/debug\/NewsAPIPackageTests.xctest\/Contents\/MacOS\/NewsAPIPackageTests"
+    }
+  ],
+  "copyCommands" : {
+
+  },
+  "rootExecutables" : [
+
+  ],
+  "swiftTargetMap" : {
+    "C.NewsAPI-debug.module" : "NewsAPI",
+    "C.NewsAPITests-debug.module" : "NewsAPITests"
+  },
+  "testDiscoveryCommands" : {
+
+  }
+}
