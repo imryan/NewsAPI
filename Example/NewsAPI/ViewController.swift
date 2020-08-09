@@ -35,6 +35,14 @@ class ViewController: UIViewController {
         }
     }
     
+    private func show(title: String, message: String) {
+        DispatchQueue.main.async {
+            let alertController: UIAlertController = .init(title: title, message: message, preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alertController, animated: true)
+        }
+    }
+    
     // MARK: - Functions -
     
     private func getTopHeadlines() {
@@ -51,7 +59,7 @@ class ViewController: UIViewController {
             }
             
             if let error = error {
-                debugPrint("Error: \(error)")
+                self?.show(title: error.code?.rawValue ?? "Error", message: error.message ?? "No error description.")
             }
         })
     }
@@ -71,7 +79,7 @@ class ViewController: UIViewController {
             }
             
             if let error = error {
-                debugPrint("Error: \(error)")
+                self?.show(title: error.code?.rawValue ?? "Error", message: error.message ?? "No error description.")
             }
         })
     }
@@ -90,7 +98,7 @@ class ViewController: UIViewController {
             }
             
             if let error = error {
-                debugPrint("Error: \(error)")
+                self?.show(title: error.code?.rawValue ?? "Error", message: error.message ?? "No error description.")
             }
         }
     }

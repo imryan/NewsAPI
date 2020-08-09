@@ -10,9 +10,9 @@ import Foundation
 // MARK: - Error -
 
 public struct NewsAPIError: Codable {
-    let status: ErrorStatus
-    let code: ErrorCode?
-    let message: String?
+    public let status: ErrorStatus
+    public let code: ErrorCode?
+    public let message: String?
 }
 
 // MARK: - Headline -

@@ -105,7 +105,8 @@ final public class Networking {
             }
             
             // Decode error data object
-            if let errorObject = try? JSONDecoder().decode(NewsAPIError.self, from: data) {
+            if let errorObject = try? JSONDecoder().decode(NewsAPIError.self, from: data),
+                errorObject.status == .error {
                 completion(nil, errorObject)
             }
             
