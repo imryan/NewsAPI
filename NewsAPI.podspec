@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name             = 'NewsAPI'
+  s.name             = 'NewsAPISwift'
   s.version          = '1.0.0'
   s.summary          = 'Swift wrapper for the News API service.'
 
@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
 
   s.homepage         = 'https://github.com/imryan/NewsAPI'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'imryan' => 'notryancohen@gmail.com' }
+  s.author           = { 'Ryan Cohen' => 'notryancohen@gmail.com' }
   s.source           = { :git => 'https://github.com/imryan/NewsAPI.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/notryancohen'
   s.swift_version = '5.1'
