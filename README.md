@@ -12,6 +12,98 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 ![](Screenshots/list.png)
 ![](Screenshots/detail.png)
 
+## Usage
+
+#### Fetch top headlines
+```swift
+let options: [QueryOptions] = [
+    .country(.us),
+    .pageSize(5),
+    .sortBy(.popularity)
+]
+        
+news.get(.topHeadlines, with: options, headlinesCompletion: { [weak self] (headlines, error) in
+	if let headlines = headlines, let articles = headlines.articles {
+			debugPrint(articles)
+		}
+	})
+
+```
+
+#### Fetch everything
+```swift
+let options: [QueryOptions] = [
+    .domains(["bbc.co.uk", "bbc.com"]),
+    .excludeDomains(["google.com"]),
+    .country(.us)
+]
+        
+news.get(.everything, with: options, headlinesCompletion: { [weak self] (headlines, error) in
+	if let headlines = headlines, let articles = headlines.articles {
+			debugPrint(articles)
+		}
+	})
+
+```
+
+#### Fetch sources
+```swift
+let options: [QueryOptions] = [
+    .language(.en),
+    .category(.technology),
+    .country(.us)
+]
+        
+news.get(.sources, with: options, sourcesCompletion: { [weak self] (sources, error) in
+	if let sources = sources {
+			debugPrint(sources)
+		}
+	})
+
+```
+
+#### Query Options
+```swift
+/// Keywords or a phrase to search for.
+case query(String)
+
+/// Keywords or phrases to search for in the article title only.
+case titleQuery(String)
+
+/// The news sources or blogs you want headlines from.
+case sources([String])
+
+/// Domains (eg bbc.co.uk, techcrunch.com, engadget.com) to restrict the search to.
+case domains([String])
+
+/// Domains (eg bbc.co.uk, techcrunch.com, engadget.com) to remove from the results.
+case excludeDomains([String])
+
+/// A date and optional time for the oldest article allowed.
+case fromDate(Date)
+
+/// A date and optional time for the newest article allowed.
+case toDate(Date)
+
+/// Code of the language you want to get headlines for.
+case language(Language)
+
+/// The order to sort the articles in.
+case sortBy(SortOptions)
+
+/// The category you want to get headlines for.
+case category(Category)
+
+/// The code of the country you want to get headlines for.
+case country(Country)
+
+/// The number of results to return per page (request). 20 is the default, 100 is the maximum.
+case pageSize(Int)
+
+/// Use this to page through the results if the total results found is greater than the page size.
+case page(Int)
+```
+
 ## Installation
 
 NewsAPI is available through [CocoaPods](https://cocoapods.org). To install
