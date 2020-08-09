@@ -8,35 +8,19 @@
 
 Pod::Spec.new do |s|
   s.name             = 'NewsAPI'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of NewsAPI.'
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
+  s.version          = '1.0.0'
+  s.summary          = 'Swift wrapper for the News API service.'
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+  Get breaking news headlines, and search for articles from news sources and blogs all over the web with the News API.
                        DESC
 
   s.homepage         = 'https://github.com/imryan/NewsAPI'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'imryan' => 'notryancohen@gmail.com' }
   s.source           = { :git => 'https://github.com/imryan/NewsAPI.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.social_media_url = 'https://twitter.com/notryancohen'
 
   s.ios.deployment_target = '8.0'
-
   s.source_files = 'NewsAPI/Classes/**/*'
-  
-  # s.resource_bundles = {
-  #   'NewsAPI' => ['NewsAPI/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end
