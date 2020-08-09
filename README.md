@@ -14,7 +14,17 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Usage
 
+#### Initialization
+> Setup with your API key first.
+
+```swift
+let news: News = News(apiKey: "your-api-key")
+```
+
 #### Fetch top headlines
+> Returns breaking news headlines for a country and category, or currently running on a single or multiple sources.
+
+
 ```swift
 let options: [QueryOptions] = [
     .country(.us),
@@ -31,6 +41,8 @@ news.get(.topHeadlines, with: options, headlinesCompletion: { [weak self] (headl
 ```
 
 #### Fetch everything
+> The NewsAPI indexes every recent news and blog article published by over 50,000 different sources large and small, and you can search through them with this endpoint.
+
 ```swift
 let options: [QueryOptions] = [
     .domains(["bbc.co.uk", "bbc.com"]),
@@ -47,6 +59,8 @@ news.get(.everything, with: options, headlinesCompletion: { [weak self] (headlin
 ```
 
 #### Fetch sources
+> Returns information (including name, description, and category) about the most notable sources the NewsAPI indexes.
+
 ```swift
 let options: [QueryOptions] = [
     .language(.en),
@@ -63,6 +77,8 @@ news.get(.sources, with: options, sourcesCompletion: { [weak self] (sources, err
 ```
 
 #### Query Options
+> The available query options for filtering results.
+
 ```swift
 /// Keywords or a phrase to search for.
 case query(String)
