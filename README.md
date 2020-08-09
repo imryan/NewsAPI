@@ -24,9 +24,9 @@ let options: [QueryOptions] = [
         
 news.get(.topHeadlines, with: options, headlinesCompletion: { [weak self] (headlines, error) in
 	if let headlines = headlines, let articles = headlines.articles {
-			debugPrint(articles)
-		}
-	})
+		debugPrint(articles)
+	}
+})
 
 ```
 
@@ -40,9 +40,9 @@ let options: [QueryOptions] = [
         
 news.get(.everything, with: options, headlinesCompletion: { [weak self] (headlines, error) in
 	if let headlines = headlines, let articles = headlines.articles {
-			debugPrint(articles)
-		}
-	})
+		debugPrint(articles)
+	}
+})
 
 ```
 
@@ -56,9 +56,9 @@ let options: [QueryOptions] = [
         
 news.get(.sources, with: options, sourcesCompletion: { [weak self] (sources, error) in
 	if let sources = sources {
-			debugPrint(sources)
-		}
-	})
+		debugPrint(sources)
+	}
+})
 
 ```
 
