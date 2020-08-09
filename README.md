@@ -12,8 +12,6 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 ![](Screenshots/list.png)
 ![](Screenshots/detail.png)
 
-## Requirements
-
 ## Installation
 
 NewsAPI is available through [CocoaPods](https://cocoapods.org). To install
