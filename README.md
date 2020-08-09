@@ -1,6 +1,5 @@
 # NewsAPI
 
-[![CI Status](https://img.shields.io/travis/imryan/NewsAPI.svg?style=flat)](https://travis-ci.org/imryan/NewsAPI)
 [![Version](https://img.shields.io/cocoapods/v/NewsAPI.svg?style=flat)](https://cocoapods.org/pods/NewsAPI)
 [![License](https://img.shields.io/cocoapods/l/NewsAPI.svg?style=flat)](https://cocoapods.org/pods/NewsAPI)
 [![Platform](https://img.shields.io/cocoapods/p/NewsAPI.svg?style=flat)](https://cocoapods.org/pods/NewsAPI)
