@@ -10,9 +10,9 @@ import Foundation
 // MARK: - Error -
 
 public struct NewsAPIError: Codable {
-    let status: String
-    let code: String
-    let message: String
+    let status: ErrorStatus
+    let code: ErrorCode?
+    let message: String?
 }
 
 // MARK: - Headline -
@@ -71,17 +71,4 @@ public struct NewsSource: Codable {
     public let category: Category?
     public let language: Language?
     public let country: Country?
-}
-
-// MARK: - Formatter -
-
-private struct Formatter {
-    
-    static var dateFormatter: DateFormatter {
-        let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "en_US_POSIX")
-        formatter.timeZone = TimeZone(secondsFromGMT: 0)
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"
-        return formatter
-    }
 }

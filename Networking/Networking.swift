@@ -100,7 +100,7 @@ final public class Networking {
         
         URLSession.shared.dataTask(with: urlRequest) { (data, _, error) in
             guard let data = data else {
-                completion(nil, NewsAPIError(status: "0", code: "-1", message: "No data returned."))
+                completion(nil, .init(status: .error, code: .unexpectedError, message: "No data returned."))
                 return
             }
             
@@ -114,8 +114,10 @@ final public class Networking {
                 let object = try JSONDecoder().decode(T.self, from: data)
                 completion(object, nil)
             } catch {
+                completion(nil, .init(status: .error, code: .unexpectedError, message: "Could not decode data object."))
+                
+                // TODO: Remove debug code.
                 debugPrint(error)
-                completion(nil, NewsAPIError(status: "0", code: "-2", message: "Could not decode data object."))
             }
         }.resume()
     }
