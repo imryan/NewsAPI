@@ -1,4 +1,0 @@
-module NewsAPI {
-    header "/Users/ryan/Development/Personal/NewsAPI/.build/x86_64-apple-macosx/debug/NewsAPI.build/NewsAPI-Swift.h"
-    requires objc
-}

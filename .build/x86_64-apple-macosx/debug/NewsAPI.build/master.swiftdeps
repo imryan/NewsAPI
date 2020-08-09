@@ -1,5 +1,0 @@
-version: "Apple Swift version 5.2.4 (swiftlang-1103.0.32.9 clang-1103.0.32.53)"
-options: "124f3d725e550a4e4f00aee7265015c5"
-build_time: [1596992735, 771612000]
-inputs:
-  "/Users/ryan/Development/Personal/NewsAPI/Sources/NewsAPI/NewsAPI.swift": [1596992712, 886651173]
