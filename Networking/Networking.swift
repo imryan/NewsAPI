@@ -48,15 +48,18 @@ final public class Networking {
     
     // MARK: - Functions -
     
-    func get(_ endpoint: Endpoint, with options: [QueryOptions], completion: @escaping HeadlinesCompletion) {
-        request(.get, endpoint: endpoint, parameters: getParameters(from: options)) { (headline: Headline?, error: NewsAPIError?) in
-            completion(headline, error)
-        }
-    }
-    
-    func getSources(with options: [QueryOptions], completion: @escaping SourcesCompletion) {
-        request(.get, endpoint: .sources, parameters: getParameters(from: options)) { (sources: NewsSourceContainer?, error: NewsAPIError?) in
-            completion(sources, error)
+    func get(_ endpoint: Endpoint, with options: [QueryOptions],
+             headlinesCompletion: HeadlinesCompletion? = nil,
+             sourcesCompletion: SourcesCompletion? = nil) {
+        
+        if endpoint == .sources {
+            request(.get, endpoint: .sources, parameters: getParameters(from: options)) { (sources: NewsSourceContainer?, error: NewsAPIError?) in
+                sourcesCompletion?(sources, error)
+            }
+        } else {
+            request(.get, endpoint: endpoint, parameters: getParameters(from: options)) { (headline: Headline?, error: NewsAPIError?) in
+                headlinesCompletion?(headline, error)
+            }
         }
     }
     

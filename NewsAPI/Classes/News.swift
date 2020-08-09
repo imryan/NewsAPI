@@ -37,7 +37,7 @@ open class News {
     ///     Accepted options: (`.category`, `.language`, `.country`, `.sources`, `.query`, `.pageSize`, `.page`)
     ///   - completion: Closure returning optional `Headline` object and an optional `NewsAPIError`.
     open func getTopHeadlines(with options: [QueryOptions], completion: @escaping HeadlinesCompletion) {
-        networking?.get(.topHeadlines, with: options, completion: completion)
+        networking?.get(.topHeadlines, with: options, headlinesCompletion: completion)
     }
     
     /// Get everything
@@ -52,7 +52,7 @@ open class News {
     ///     `.titleQuery`, `.domains`, `.excludeDomains`, `.fromDate`, `.toDate`, `sortBy`)
     ///   - completion: Closure returning optional `Headline` object and an optional `NewsAPIError`.
     open func getEverything(with options: [QueryOptions], completion: @escaping HeadlinesCompletion) {
-        networking?.get(.everything, with: options, completion: completion)
+        networking?.get(.topHeadlines, with: options, headlinesCompletion: completion)
     }
     
     /// Get sources
@@ -66,7 +66,7 @@ open class News {
     ///     Accepted options: (`.category`, `.language`, `.country`)
     ///   - completion: Closure returning optional `Headline` object and an optional `NewsAPIError`.
     open func getSources(with options: [QueryOptions], completion: @escaping SourcesCompletion) {
-        networking?.getSources(with: options, completion: completion)
+        networking?.get(.sources, with: options, sourcesCompletion: completion)
     }
     
     /// Shorthand function for fetching top headlines/everything/sources
@@ -75,16 +75,21 @@ open class News {
     ///   - type: `EndpointType` type for specifying the endpoint.
     ///   - options: Array of `QueryOptions` items for fitlering results.
     ///   - completion: Closure returning optional `Headline` object and an optional `NewsAPIError`.
-    open func get(_ type: Networking.Endpoint, with options: [QueryOptions], completion: @escaping HeadlinesCompletion) {
+    open func get(_ type: Networking.Endpoint, with options: [QueryOptions],
+                  headlinesCompletion: HeadlinesCompletion? = nil,
+                  sourcesCompletion: SourcesCompletion? = nil) {
+        
         switch type {
-        case .topHeadlines:
-            getTopHeadlines(with: options, completion: completion)
-        case .everything:
-            getEverything(with: options, completion: completion)
-        case .sources:
-            fatalError("Calling sources URL unavailable from this function.")
+        case .topHeadlines where headlinesCompletion != nil:
+            getTopHeadlines(with: options, completion: headlinesCompletion!)
+        case .everything where headlinesCompletion != nil:
+            getEverything(with: options, completion: headlinesCompletion!)
+        case .sources where sourcesCompletion != nil:
+            getSources(with: options, completion: sourcesCompletion!)
         case .base:
             fatalError("Calling base URL unavailable from this function..")
+        default:
+            break
         }
     }
 }

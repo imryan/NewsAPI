@@ -40,10 +40,11 @@ class ViewController: UIViewController {
     private func getTopHeadlines() {
         let options: [QueryOptions] = [
             .country(.us),
-            .pageSize(5)
+            .pageSize(5),
+            .sortBy(.popularity)
         ]
         
-        news.get(.topHeadlines, with: options) { [weak self] (headlines, error) in
+        news.get(.topHeadlines, with: options, headlinesCompletion: { [weak self] (headlines, error) in
             if let headlines = headlines, let articles = headlines.articles {
                 self?.topHeadlines = articles
                 self?.reloadTableViewData()
@@ -52,7 +53,7 @@ class ViewController: UIViewController {
             if let error = error {
                 debugPrint("Error: \(error)")
             }
-        }
+        })
     }
     
     private func getEverything() {
@@ -62,7 +63,7 @@ class ViewController: UIViewController {
             .pageSize(5)
         ]
         
-        news.get(.everything, with: options) { [weak self] (headlines, error) in
+        news.get(.everything, with: options, headlinesCompletion: { [weak self] (headlines, error) in
             if let headlines = headlines, let articles = headlines.articles {
                 self?.everything = articles
                 self?.reloadTableViewData()
@@ -71,17 +72,16 @@ class ViewController: UIViewController {
             if let error = error {
                 debugPrint("Error: \(error)")
             }
-        }
+        })
     }
     
     private func getSources() {
         let options: [QueryOptions] = [
             .language(.en),
-            .category(.technology),
-            .country(.us)
+            .category(.technology)
         ]
         
-        news.getSources(with: options) { [weak self] (sources, error) in
+        news.get(.sources, with: options) { [weak self] (sources, error) in
             if let sources = sources?.sources {
                 self?.sources = sources
                 self?.reloadTableViewData()
