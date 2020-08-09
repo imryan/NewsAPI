@@ -1,3 +1,5 @@
+![](Screenshots/news-api-logo.png)
+
 # NewsAPI
 
 [![Version](https://img.shields.io/cocoapods/v/NewsAPI.svg?style=flat)](https://cocoapods.org/pods/NewsAPI)
