@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name             = 'NewsAPISwift'
+  s.name             = 'NewsOrgAPI'
   s.version          = '1.0.0'
   s.summary          = 'Swift wrapper for the News API service.'
 
