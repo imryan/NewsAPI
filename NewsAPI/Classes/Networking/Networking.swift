@@ -91,9 +91,6 @@ final public class Networking {
             urlComponents.queryItems = queryItems
         }
         
-        // TODO: Remove debug code.
-        debugPrint("Request URL: \(urlComponents.url?.absoluteString ?? "N/A")")
-        
         var urlRequest: URLRequest = URLRequest(url: urlComponents.url!)
         urlRequest.httpMethod = method.rawValue
         urlRequest.addValue(apiKey, forHTTPHeaderField: "x-api-key")
@@ -116,9 +113,6 @@ final public class Networking {
                 completion(object, nil)
             } catch {
                 completion(nil, .init(status: .error, code: .unexpectedError, message: "Could not decode data object."))
-                
-                // TODO: Remove debug code.
-                debugPrint(error)
             }
         }.resume()
     }
