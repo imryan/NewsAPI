@@ -123,7 +123,7 @@ case page(Int)
 
 ## Installation
 
-NewsAPI is available through [CocoaPods](https://cocoapods.org). To install
+NewsAPI is available through [CocoaPods](https://cocoapods.org/pods/SwiftNewsAPI). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
